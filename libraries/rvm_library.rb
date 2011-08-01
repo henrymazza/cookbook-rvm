@@ -1,7 +1,7 @@
 module RvmLibrary
 
   def fully_qualified_ruby(ruby)
-    %x{ bash -c "source /usr/local/lib/rvm ; rvm list gemsets strings | grep #{ruby} | grep -v '@' " }
+    %x{ bash -c "source /usr/local/rvm/scripts/rvm ; rvm list gemsets strings | grep #{ruby} | grep -v '@' " }
   end
 
   def split_ruby_gemset(ruby_gemset, fully_qualified=false)

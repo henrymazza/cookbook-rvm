@@ -16,7 +16,7 @@ action :install do
       # install the gem package using the proper gemset via gem_binary attr
       gem_package gem do
         action       :install
-        gem_binary   "rvm #{ruby} gem"
+        gem_binary   "/usr/local/rvm/bin/rvm #{ruby} gem"
         source new_resource.source  if new_resource.source
         version new_resource.version if new_resource.version
       end
@@ -24,11 +24,11 @@ action :install do
   end
   # update the rvm perms after gem installs
   # TODO: make this less suck, like only update when perms are wrong
-  bash "update rvm perms" do
-    code %Q{ 
-      chown -R root:rvm /usr/local/rvm
-      chmod -R g+w /usr/local/rvm
-    }
-  end
+  # bash "update rvm perms" do
+  #   code %Q{ 
+  #     chown -R root:rvm /usr/local/rvm
+  #     chmod -R g+w /usr/local/rvm
+  #   }
+  # end
 end
 

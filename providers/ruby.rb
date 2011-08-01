@@ -14,6 +14,6 @@ action :install do
   rvm_shell "rvm install #{new_resource.name}" do
     action :run
     code   %Q{ rvm install #{new_resource.name} }
-    not_if %Q{ rvm list strings | grep "#{new_resource.name}" }
+    not_if %Q{ /usr/local/rvm/bin/rvm list strings | grep "#{new_resource.name}" }
   end
 end

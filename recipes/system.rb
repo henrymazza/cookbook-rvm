@@ -30,6 +30,8 @@ pkgs.each do |pkg|
   package pkg
 end
 
+group "rvm"
+
 # Create/update /etc/rvmrc
 template "/etc/rvmrc" do
   # setup lines from node[:rvm][:rvmrc] hash
