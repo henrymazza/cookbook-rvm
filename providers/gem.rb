@@ -23,12 +23,12 @@ action :install do
     end
   end
   # update the rvm perms after gem installs
-  # TODO: make this less suck, like only update when perms are wrong
-  # bash "update rvm perms" do
-  #   code %Q{ 
-  #     chown -R root:rvm /usr/local/rvm
-  #     chmod -R g+w /usr/local/rvm
-  #   }
-  # end
+  bash "update rvm perms" do
+    code %Q{ 
+      chown -R root:rvm /usr/local/rvm
+      chmod -R g+w /usr/local/rvm
+    }
+    not_if "find /usr/local -maxdepth 1 -group rvm -user root -name rvm"
+  end
 end
 
