@@ -2,7 +2,7 @@ action :install do
   # rvm_gem supports Array for name and ruby attributes
   # so you can install multiple gems into multiple gemsets with one block
   # rvm_gem [ 'rake', 'bundler' ] do
-  #   ruby [ '1.9.2@rails', '1.8.7@potsdam' ]
+  #   ruby [ '1.9.3@rails', '1.8.7@potsdam' ]
   # end
   # installs rake and bundler (latest versions) into both gemsets
   rubies = new_resource.ruby.kind_of?(Array) ? new_resource.ruby : [ new_resource.ruby ]

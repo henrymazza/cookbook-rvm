@@ -18,7 +18,7 @@
 #
 
 # set the default ruby from the node[:rvm][:default_ruby] attribute
-# 1.9.2@global is default
+# 1.9.3@global is default
 rvm_default_ruby node[:rvm][:default_ruby] do
   action :install
 end
